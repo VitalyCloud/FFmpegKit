@@ -1,5 +1,4 @@
 import Foundation
-// import PackagePlugin
 
 do {
     try BuildFFmpeg.performCommand(arguments: Array(CommandLine.arguments.dropFirst()))
@@ -9,10 +8,6 @@ do {
 }
 
 enum BuildFFmpeg {
-    // @main struct BuildFFmpeg: CommandPlugin {
-//    func performCommand(context _: PluginContext, arguments: [String]) throws {
-//        performCommand(arguments: arguments)
-//    }
     static func performCommand(arguments: [String]) throws {
         if Utility.shell("which brew") == nil {
             print("""
@@ -617,6 +612,7 @@ private class BuildFFMPEG: BaseBuild {
         "--enable-filter=rotate", "--enable-filter=scale", "--enable-filter=setpts", "--enable-filter=transpose",
         "--enable-filter=trim", "--enable-filter=vflip", "--enable-filter=volume", "--enable-filter=w3fdif",
         "--enable-filter=yadif", "--enable-filter=yadif_videotoolbox",
+        "--enable-filter=blend", "--enable-filter=tblend", "--enable-filter=minterpolate"
     ]
 }
 
